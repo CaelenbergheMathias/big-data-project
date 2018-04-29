@@ -1,2 +1,6 @@
 
 *.gzip
+
+combo\.csv
+
+*.csv
