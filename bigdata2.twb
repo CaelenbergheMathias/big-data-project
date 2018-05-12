@@ -1,0 +1,1012 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 10500.17.1226.1925                               -->
+<workbook original-version='10.5' source-build='10.5.0 (10500.17.1226.1925)' source-platform='win' version='10.5' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='finalfinalCleaning (2)' inline='true' name='federated.0xlev5f0a1a5vm19pfj7b0lu1168' version='10.5'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='finalfinalCleaning (2)' name='textscan.04wleo31kz8ykk1d720bp1swwlwq'>
+            <connection class='textscan' directory='C:/Users/Mathias/AnacondaProjects/big-data-project' filename='finalfinalCleaning (2).csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.04wleo31kz8ykk1d720bp1swwlwq' name='finalfinalCleaning (2).csv' table='[finalfinalCleaning (2)#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='nl_BE'>
+            <column datatype='string' name=',date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_' ordinal='0' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[finalfinalCleaning (2).csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;nl_NL&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;€&quot;</attribute>
+              <attribute datatype='string' name='debit-close-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='debit-open-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='decimal-char'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;nl_BE&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='thousands-char'>&quot;.&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]</local-name>
+            <parent-name>[finalfinalCleaning (2).csv]</parent-name>
+            <remote-alias>,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LNL_RNL' />
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Arrival_state' datatype='string' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 10]' role='dimension' semantic-role='[State].[Name]' type='nominal' user:SplitFieldIndex='10' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, 10 ) )' />
+      </column>
+      <column aggregation='Avg' caption='arrival_lat' datatype='real' datatype-customized='true' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 11]' role='dimension' semantic-role='[Geographical].[Latitude]' type='quantitative' user:SplitFieldIndex='11' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+        <calculation class='tableau' formula='FLOAT(TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, -8 ) ))' />
+      </column>
+      <column caption='arrival_lon' datatype='string' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 12]' role='dimension' semantic-role='[State].[Name]' type='nominal' user:SplitFieldIndex='12' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, -7 ) )' />
+      </column>
+      <column caption='sched_departure' datatype='string' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 13]' role='dimension' semantic-role='[State].[Name]' type='nominal' user:SplitFieldIndex='13' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, -6 ) )' />
+      </column>
+      <column caption='actual_dep' datatype='string' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 14]' role='dimension' semantic-role='[State].[Name]' type='nominal' user:SplitFieldIndex='14' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, -5 ) )' />
+      </column>
+      <column caption='dep_delay' datatype='real' datatype-customized='true' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 15]' role='dimension' semantic-role='' type='ordinal' user:SplitFieldIndex='15' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+        <calculation class='tableau' formula='FLOAT(TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, -4 ) ))' />
+      </column>
+      <column caption='arr_sched' datatype='string' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 16]' role='dimension' semantic-role='[State].[Name]' type='nominal' user:SplitFieldIndex='16' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, -3 ) )' />
+      </column>
+      <column caption='arr_actual' datatype='string' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 17]' role='dimension' semantic-role='[State].[Name]' type='nominal' user:SplitFieldIndex='17' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, -2 ) )' />
+      </column>
+      <column caption='arrival_delay' datatype='real' datatype-customized='true' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 18]' role='dimension' semantic-role='' type='ordinal' user:SplitFieldIndex='18' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+        <calculation class='tableau' formula='FLOAT(TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, -1 ) ))' />
+      </column>
+      <column caption='ID' datatype='string' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 1]' role='dimension' semantic-role='[State].[Name]' type='nominal' user:SplitFieldIndex='1' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, 1 ) )' />
+      </column>
+      <column caption='Date' datatype='string' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 2]' role='dimension' semantic-role='[State].[Name]' type='nominal' user:SplitFieldIndex='2' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, 2 ) )' />
+      </column>
+      <column caption='Airline' datatype='string' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 3]' role='dimension' semantic-role='[State].[Name]' type='nominal' user:SplitFieldIndex='3' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, 3 ) )' />
+      </column>
+      <column caption='Airline_code' datatype='string' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 4]' role='dimension' semantic-role='[State].[Name]' type='nominal' user:SplitFieldIndex='4' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, 4 ) )' />
+      </column>
+      <column caption='Airport_departure' datatype='string' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 5]' role='dimension' semantic-role='[State].[Name]' type='nominal' user:SplitFieldIndex='5' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, 5 ) )' />
+      </column>
+      <column caption='DepartureState' datatype='string' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 6]' role='dimension' semantic-role='[State].[Name]' type='nominal' user:SplitFieldIndex='6' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, 6 ) )' />
+      </column>
+      <column caption='Dep_lat' datatype='string' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 7]' role='dimension' semantic-role='[State].[Name]' type='nominal' user:SplitFieldIndex='7' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, 7 ) )' />
+      </column>
+      <column caption='Dep_lon' datatype='string' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 8]' role='dimension' semantic-role='[State].[Name]' type='nominal' user:SplitFieldIndex='8' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, 8 ) )' />
+      </column>
+      <column caption='Airport_arrival' datatype='string' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 9]' role='dimension' semantic-role='[Airport].[Name]' type='nominal' user:SplitFieldIndex='9' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, 9 ) )' />
+      </column>
+      <column datatype='string' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column caption='Slow Flyers' datatype='boolean' name='[Calculation_511158622599618566 1]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='([,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 18]&gt;=0 AND [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 15]&lt;=0)' />
+      </column>
+      <column caption='Fast Flyers' datatype='boolean' name='[Calculation_511158622599618566]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='([,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 18]&lt;=0 AND [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 15]&gt;15)' />
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <layout dim-ordering='alphabetic' dim-percentage='0.727818' measure-ordering='alphabetic' measure-percentage='0.272182' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Bélgica&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+    </datasource>
+  </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
+  <worksheets>
+    <worksheet name='Luchthavens met de meeste vertraging'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='finalfinalCleaning (2)' name='federated.0xlev5f0a1a5vm19pfj7b0lu1168' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0xlev5f0a1a5vm19pfj7b0lu1168'>
+            <column caption='dep_delay' datatype='real' datatype-customized='true' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 15]' role='dimension' semantic-role='' type='ordinal' user:SplitFieldIndex='15' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+              <calculation class='tableau' formula='FLOAT(TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, -4 ) ))' />
+            </column>
+            <column caption='Airport_departure' datatype='string' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 5]' role='dimension' semantic-role='[State].[Name]' type='nominal' user:SplitFieldIndex='5' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+              <calculation class='tableau' formula='TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, 5 ) )' />
+            </column>
+            <column datatype='string' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column-instance column='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 15]' derivation='Avg' name='[avg:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 15:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 5]' derivation='None' name='[none:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 5:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[none:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 5:nk]'>
+            <groupfilter count='5' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+              <groupfilter direction='DESC' expression='AVG([,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 15])' function='order' user:ui-marker='order'>
+                <groupfilter function='level-members' level='[none:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 5:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <sort class='computed' column='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[none:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 5:nk]' direction='DESC' using='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[avg:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 15:qk]' />
+          <slices>
+            <column>[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[none:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 5:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[avg:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 15:qk]' scope='rows' value='Gemiddelde vertraging in minuten' />
+            <format attr='subtitle' class='0' field='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[avg:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 15:qk]' scope='rows' value='' />
+            <format attr='auto-subtitle' class='0' field='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[avg:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 15:qk]' scope='rows' value='true' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[avg:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 15:qk]</rows>
+        <cols>[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[none:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 5:nk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='Luchthavens met de minste vertraging'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='finalfinalCleaning (2)' name='federated.0xlev5f0a1a5vm19pfj7b0lu1168' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0xlev5f0a1a5vm19pfj7b0lu1168'>
+            <column caption='dep_delay' datatype='real' datatype-customized='true' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 15]' role='dimension' semantic-role='' type='ordinal' user:SplitFieldIndex='15' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+              <calculation class='tableau' formula='FLOAT(TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, -4 ) ))' />
+            </column>
+            <column caption='Airport_departure' datatype='string' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 5]' role='dimension' semantic-role='[State].[Name]' type='nominal' user:SplitFieldIndex='5' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+              <calculation class='tableau' formula='TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, 5 ) )' />
+            </column>
+            <column datatype='string' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column-instance column='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 15]' derivation='Avg' name='[avg:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 15:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 5]' derivation='None' name='[none:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 5:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[none:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 5:nk]'>
+            <groupfilter count='5' end='bottom' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+              <groupfilter direction='DESC' expression='AVG([,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 15])' function='order' user:ui-marker='order'>
+                <groupfilter function='level-members' level='[none:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 5:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <sort class='computed' column='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[none:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 5:nk]' direction='ASC' using='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[avg:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 15:qk]' />
+          <slices>
+            <column>[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[none:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 5:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[avg:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 15:qk]' scope='rows' value='Vertraging in minuten' />
+            <format attr='subtitle' class='0' field='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[avg:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 15:qk]' scope='rows' value='' />
+            <format attr='auto-subtitle' class='0' field='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[avg:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 15:qk]' scope='rows' value='true' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[avg:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 15:qk]</rows>
+        <cols>[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[none:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 5:nk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='finalfinalCleaning (2)' name='federated.0xlev5f0a1a5vm19pfj7b0lu1168' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.0xlev5f0a1a5vm19pfj7b0lu1168'>
+            <column caption='dep_delay' datatype='real' datatype-customized='true' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 15]' role='dimension' semantic-role='' type='ordinal' user:SplitFieldIndex='15' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+              <calculation class='tableau' formula='FLOAT(TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, -4 ) ))' />
+            </column>
+            <column caption='arrival_delay' datatype='real' datatype-customized='true' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 18]' role='dimension' semantic-role='' type='ordinal' user:SplitFieldIndex='18' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+              <calculation class='tableau' formula='FLOAT(TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, -1 ) ))' />
+            </column>
+            <column caption='ID' datatype='string' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 1]' role='dimension' semantic-role='[State].[Name]' type='nominal' user:SplitFieldIndex='1' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+              <calculation class='tableau' formula='TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, 1 ) )' />
+            </column>
+            <column caption='Airport_arrival' datatype='string' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 9]' role='dimension' semantic-role='[Airport].[Name]' type='nominal' user:SplitFieldIndex='9' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+              <calculation class='tableau' formula='TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, 9 ) )' />
+            </column>
+            <column datatype='string' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column caption='Fast Flyers' datatype='boolean' name='[Calculation_511158622599618566]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='([,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 18]&lt;=0 AND [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 15]&gt;15)' />
+            </column>
+            <column-instance column='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 1]' derivation='Count' name='[cnt:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 1:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 9]' derivation='None' name='[none:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 9:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_511158622599618566]' derivation='None' name='[none:Calculation_511158622599618566:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <sort class='computed' column='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[none:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 9:nk]' direction='DESC' using='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[cnt:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 1:qk]' />
+          <filter class='categorical' column='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[none:Calculation_511158622599618566:nk]'>
+            <groupfilter function='member' level='[none:Calculation_511158622599618566:nk]' member='true' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[none:Calculation_511158622599618566:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='tab_base' value='true' />
+            <format attr='enabled' id='um_lcover' value='true' />
+            <format attr='enabled' id='tab_coastline' value='false' />
+            <format attr='enabled' id='pp2_line' value='false' />
+            <format attr='enabled' id='light_adm0_bnd' value='false' />
+            <format attr='enabled' id='light_adm0_lbl' value='false' />
+            <format attr='enabled' id='um_adm0_bnd' value='true' />
+            <format attr='enabled' id='um_adm0_lbl' value='true' />
+            <format attr='enabled' id='light_pp2_statebounds' value='false' />
+            <format attr='enabled' id='light_pp2_statelabels' value='false' />
+            <format attr='enabled' id='pp2_adminlabels' value='false' />
+            <format attr='enabled' id='pp2_statebounds' value='true' />
+            <format attr='enabled' id='pp2_statelabels' value='true' />
+            <format attr='enabled' id='countybounds' value='false' />
+            <format attr='enabled' id='countylabels' value='false' />
+            <format attr='enabled' id='zipbounds' value='false' />
+            <format attr='enabled' id='ziplabels' value='false' />
+            <format attr='enabled' id='tab_areabounds' value='false' />
+            <format attr='enabled' id='tab_arealabels' value='false' />
+            <format attr='enabled' id='tab_msabounds' value='false' />
+            <format attr='enabled' id='tab_msalabels' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[cnt:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 1:qk]</rows>
+        <cols>[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[none:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 9:nk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='Sheet 1 (2)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='finalfinalCleaning (2)' name='federated.0xlev5f0a1a5vm19pfj7b0lu1168' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.0xlev5f0a1a5vm19pfj7b0lu1168'>
+            <column caption='dep_delay' datatype='real' datatype-customized='true' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 15]' role='dimension' semantic-role='' type='ordinal' user:SplitFieldIndex='15' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+              <calculation class='tableau' formula='FLOAT(TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, -4 ) ))' />
+            </column>
+            <column caption='arrival_delay' datatype='real' datatype-customized='true' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 18]' role='dimension' semantic-role='' type='ordinal' user:SplitFieldIndex='18' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+              <calculation class='tableau' formula='FLOAT(TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, -1 ) ))' />
+            </column>
+            <column caption='ID' datatype='string' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 1]' role='dimension' semantic-role='[State].[Name]' type='nominal' user:SplitFieldIndex='1' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+              <calculation class='tableau' formula='TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, 1 ) )' />
+            </column>
+            <column caption='Airport_departure' datatype='string' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 5]' role='dimension' semantic-role='[State].[Name]' type='nominal' user:SplitFieldIndex='5' user:SplitFieldOrigin='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]'>
+              <calculation class='tableau' formula='TRIM( SPLIT( [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_], &quot;,&quot;, 5 ) )' />
+            </column>
+            <column datatype='string' name='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column caption='Fast Flyers' datatype='boolean' name='[Calculation_511158622599618566]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='([,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 18]&lt;=0 AND [,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 15]&gt;15)' />
+            </column>
+            <column-instance column='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 1]' derivation='Count' name='[cnt:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 1:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 5]' derivation='None' name='[none:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 5:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_511158622599618566]' derivation='None' name='[none:Calculation_511158622599618566:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <sort class='computed' column='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[none:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 5:nk]' direction='DESC' using='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[cnt:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 1:qk]' />
+          <filter class='categorical' column='[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[none:Calculation_511158622599618566:nk]'>
+            <groupfilter function='member' level='[none:Calculation_511158622599618566:nk]' member='true' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[none:Calculation_511158622599618566:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='tab_base' value='true' />
+            <format attr='enabled' id='um_lcover' value='true' />
+            <format attr='enabled' id='tab_coastline' value='false' />
+            <format attr='enabled' id='pp2_line' value='false' />
+            <format attr='enabled' id='light_adm0_bnd' value='false' />
+            <format attr='enabled' id='light_adm0_lbl' value='false' />
+            <format attr='enabled' id='um_adm0_bnd' value='true' />
+            <format attr='enabled' id='um_adm0_lbl' value='true' />
+            <format attr='enabled' id='light_pp2_statebounds' value='false' />
+            <format attr='enabled' id='light_pp2_statelabels' value='false' />
+            <format attr='enabled' id='pp2_adminlabels' value='false' />
+            <format attr='enabled' id='pp2_statebounds' value='true' />
+            <format attr='enabled' id='pp2_statelabels' value='true' />
+            <format attr='enabled' id='countybounds' value='false' />
+            <format attr='enabled' id='countylabels' value='false' />
+            <format attr='enabled' id='zipbounds' value='false' />
+            <format attr='enabled' id='ziplabels' value='false' />
+            <format attr='enabled' id='tab_areabounds' value='false' />
+            <format attr='enabled' id='tab_arealabels' value='false' />
+            <format attr='enabled' id='tab_msabounds' value='false' />
+            <format attr='enabled' id='tab_msalabels' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[cnt:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 1:qk]</rows>
+        <cols>[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[none:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 5:nk]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Dashboard 1'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones use-insets='false'>
+        <zone h='100000' id='2' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='1' name='Luchthavens met de meeste vertraging' w='49200' x='800' y='1000'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone h='98000' id='3' name='Luchthavens met de minste vertraging' w='49200' x='50000' y='1000'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='worksheet' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+          <strip size='160'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[none:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 3:nk]</field>
+            <field>[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[none:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 9:nk]</field>
+            <field>[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[none:Calculation_511158622599618566:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='worksheet' name='Sheet 1 (2)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+          <strip size='160'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[none:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 3:nk]</field>
+            <field>[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[none:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 5:nk]</field>
+            <field>[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[none:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 9:nk]</field>
+            <field>[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[none:Calculation_511158622599618566:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='worksheet' name='Luchthavens met de meeste vertraging'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[none:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 15:ok]</field>
+            <field>[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[none:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 5:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='worksheet' maximized='true' name='Luchthavens met de minste vertraging'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[none:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 15:ok]</field>
+            <field>[federated.0xlev5f0a1a5vm19pfj7b0lu1168].[none:,date,airline,airline_code,departure_airport,departure_state,departure_lat,departure_lon,arrival_airport,arrival_state,arrival_ - Split 5:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='dashboard' name='Dashboard 1'>
+      <viewpoints>
+        <viewpoint name='Luchthavens met de meeste vertraging'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Luchthavens met de minste vertraging'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Dashboard 1' width='192'>
+      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
+      Ytvtvvt9zP8Hi7ZXbiGW3lUAAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='192' name='Luchthavens met de meeste vertraging' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAAN5ElEQVR4nO3d228b150H8O8MhzdREilL1M22LCuWbcl32bXjJpvWdhOnQZp0mxQo0gTp
+      YvdtUxTYp7zsy74k+x+kQIE+7BZp0WIRu2maywJ1g10ndmRZsWTJtCJfdZcokrryMjOnD45k
+      U44pUZojij3fDyDAIsXzmznk1zNDzvyoCSEEiBSkaZqmF3ohiAqJASClMQCktIIHwDTNQi8C
+      KazgAbBtu9CLQAoreACICokBIKUxAKQ0BoCUxgCQ0hgAUhoDQEpjAEhpDAApzfkACBuTg1/h
+      s/Pn0d0/CNMWmIsNof3CF7g7Me14OaK1cDwAQtiYzQANjY2Yvn0dQ7ExfNnZh/JwCNcuXcYc
+      z3ygDcRwekBNN7ClvgZf3byLjNuHssw0rHATmpu2IJAYwcgc0FhiY+E6HCEELMtyejGIVsTx
+      AAAALBMzsym43QYsy8bCdTe6DoivtwAPBoAnxFGhOB4A2zIxNJ7AY83NGOxqx6iogT16A0Nh
+      HZERC0f3AbquQ9fvhcK2bbjdbqcXg2hFnN8F0jSIuSg+74kguLkZbXVbkfTauNQVQePBNpTy
+      fSfaQLRCXxSfTqfh8XgKuQikKF4UT8pjAEhpct4FWoPx+CwmEvPSxg8GvKivKpM2PhWXDReA
+      jy724/fneqSNf7KtEb94+XFp41Nx4S4QKY0BIKUxAKQ0BoCUxgCQ0hgAUtqGexu00K7dmcD/
+      /LVX2vjVFQH8y/Nt0san/DAAS0xOzeNC76C08RtrQ9LGpvxxF4iUxgCQ0hgAUhoDQEpjAEhp
+      DAApjW+DbjCJ2ST+66Mr0sY/vmcLDu+qlzZ+sWEANpj5lIlP2m9IG792UykD8ADuApHSnN8C
+      2BZu9lxEZ2QIthHCU6e+hcHOC7gxNgVv+VacOHkUJYwdbRDOvxQ1DeFte/HCP/4IhxqCmJ8Z
+      w6SoxnM/eB7bS1JIZByvSLRqzm8BNB2BUj+G+64g7q/G3sowZu6048Oz7yNQvQOPeQDLshb7
+      gVqWhWQyufhw2X1CLcvOqrdUJiM3obbIXT+dSkutb5pmzvqqcT4Awsbg9V7MBepxcHMV7MQd
+      TKAKz714DDcv/gUDUwfwWNAFl8sF4OHGWAu3y+Jy6fD5fI+8X3abRl3LXd/jNaXWNwwjZ33V
+      OB4AYabR1dWBOa0UXfDg0BPH4J3txftneuAOhPGU3+mKRKvnfG9Qtw/ff/n1rNuaap91ugyR
+      I/h+DCmNASClMQCkNAaAlMYAkNIYAFIaA0BKYwBIabwegLKc/f8I/iDx+xmOtmzGGz86Km38
+      fDEAlCWVNpGYTUkbfy61sU4H5i4QKY0BIKUxAKQ0BoCUxgCQ0hgAUhoDQEpjAEhpDAApjQEg
+      pTEApDQJ5wIJpKdG8Xl7N7zhJhxq3Q7MT6Kz8wqswFYcPbQDcjv/EK2cnN6gd8ew++ARjPVc
+      xUCiHNHOywjtOoQqv9ymU0T5ktAa0YWdrfuQmY1hwB/AZnMKETuAkvgI4qIWoU2AbdsQQgAA
+      hBAwzfvd0GzbdnyRHmTb2fWWkt2acen6LpXrPifYtp2zhuz5F8vM/3qT0BwXSE2PoztyGw3N
+      uxHyuSF0HYbbjfG+dtyM5X6BaZrm+CLlQ/X6KHT9deZ8a0Qrg86OLtTt3gs7OY1ksAK13ttw
+      l5Sh1OuGLQR0/f5RgGVZMIz7iyH7BaDrWla9h++X+76ApuWuL7s3qq7ruddf8vxry8z/epPw
+      bOuo3BTAnb7riES+QjxloHX/LsQGb8GuacWOTRtn5Ymc7w3qMtC8/3E0Z93qw+FjYadLEa0Z
+      PwcgpTEApDQGgJTGAJDSGABSGgNASmMASGkMACmNASClMQCkNAaAlMYAkNIYAFIaA0BKYwBI
+      aQwAKY0BIKUxAKQ0BoCUxgCQ0hgAUpqE1ogmrl85j+7+cZgI4DunT6Am4ELvX/+IS+kGvPrM
+      YcdLEq2WlNaIDbuPYscBL251diBtZTA1OoC4pw5bAuwNShuLhABo8HpduNPTgenSOrT4gGt9
+      CTTv3Iaem+MA7nWDW+jBaVkWksnk4sNl9+a0LDur3lKZjNxvMrdF7vrpVFpqfdM0c9Y3Jc+/
+      vcz8rzfnAyAs3O65ClHVhH3VIcwOX0NP5BoifVcxlMigvqEJO2pKF1sAptNpeDyexYfLbg3o
+      cunw+XyPvN/tlruV0rXc9T1euY1jDcPIWd+Q3Zpxmflfb1J6g/b1dWPqWj864EHbd0/hJz9t
+      gTkbxeX+ceyoKXW6JNGqOd8a0fDh6R+++nChQCW+tb/S6XJEa8K3QUlpDAApjQEgpTEApDQG
+      gJTGAJDSGABSGgNASmMASGkMACmNASClMQCkNAaAlMYAkNIYAFIaA0BKYwBIac5fE0y0Bldv
+      jeOXZ9qljR8OleDfX//O4u8MAG0o86kMbo8mpI2fNrO7XnAXiJTGAJDSJOwCCaTigzj3fx3w
+      1e7E8UM7MTPchy++7EOwcT+O7WmA5nxRolVxfgtgW7g9nMC3Tz2LejOGu5MjGJsx8MTJUyiP
+      9uHuvOMViVZNSm/Q5t2tSE+PI274sbM0jPIqAzPRAcz4qrHdC9i2Ddu2Adz794PtCBdul8W2
+      Rc72h7JbMwqRu76ZkdsZzrKt3Osvff7tAs9/dvtLCQEA5ieH0Xs7ip2trSj3G5i8+xXuzmjY
+      c6AFfh0QQoOu39v4aNr9fy/8LpOmIavew/fL30HLVV93yT0s0zW9oOu/9PleStfkrv/S519K
+      a8SOjisIN+1CbGwEeqUPX14bwJbHGjExOgy9biv8bm1xojVNy+oHuh5PQK7+o7meHCXqF3j+
+      NV3+f0AP1nd+tjUdWxvqMBObRDQ6iaTpRn39JkzHJjE5GUNa7haWKC/O9wbVDWzbeQDbHrgt
+      XFHhdBkiR/BzAFIaA0BKYwBIaQwAKY0BIKUxAKQ0BoCUxgCQ0hgAUhoDQEpjAEhpDAApjQEg
+      pTEApDQGgJTGAJDSGABSGgNASmMASGkMACmNASClSQiAQCoxiI//9Ed82h5B2hKYGu3Hx3/+
+      CJGhmPPliNZATm/QoTgeP/kMas1J3I0O4HL3MNqOH8HQlcuYZl8g2kCk9gZNGH40W0mM1m1H
+      ZWgTdte7MToDBErZG/RRTPPvvTdooed/Fb1BE4kEYrEYGhsbl//jB3qDNre0ImgOw5q4t1KW
+      Cbhc2f0h2Rt0yX2Se2MWvjfocuu/vvVXNNvXr1/He++9t6ICwsqg43IXSkNliI+PYsYdgifa
+      j6u9PeiJaqgtuf+i13V9sVfkws969QZ91M969eZ8ZH3JzXGXrV/g+dckzz+AxVpAnscApmki
+      FlvmQFbTsXVLLaajE5iYiCJp+7D/UCvslIV9R9rg57dj0AaS1zHA4OAg3nnnHbz11luP/BtN
+      N7BtV3ZvUKAG+w/WrG4JiSRa1fbGNE2cOXNG+gErkWyrDsAHH3zAAFDRW9Eu0IEDB9DS0gKf
+      z4c333wTXq8Xb7/9ds4vOiAqBisKgMfjgcfjAQAEg0EAQAV7/tPfgTw/CBOwLQuWLQBoMAz5
+      b1sSyZRXAGYnbuHd//4dYhkXgGq8/m+vodrFAFDxyisAc/Eowq3P4J+fPiRreYjWVV4BMNwW
+      Pvvgt+jvPgegGq/+4hVuAaio5RWA0NYj+I//PAgBANDhXoevtCSSKa8ApKdH8O6vfw2t6TSC
+      c7dw8scvoZxbACpieX0QFh8bgFVWA18yA208jpgtZC0X0brIKwCh8BZ4MlF0XfoQve5NqJF8
+      5iKRbHntAmVs4Oj3fopnyzyYGBhFCgI+cBeIiteKAzA9cQufnD2D3mgJDu+tR+f5CF47sAdB
+      bgSoiK04ALrLjZJAKUpTJQiUBvH8P72Ceu4CUZFb8Ss4ULEZT37vBBqDwODgALovfom44EEw
+      Fbe8jgH85fV44tRJWHYGn/z5HHS+/qnI5RUAMzWNOzduICUsRAeimBECQVlLRrQO8jsbdOGC
+      Zrjw5Es/QC2PAajI5RUAt7cM1bVhzKYtAG6YAHhJDBWzvAIQvd2J3/z+PBqaNgOoQFXTZngf
+      uh5AQAgBM2PB5Taga4BtWciYFnSXG26DWw3aOPIKgM8XRNPBIzj9D20AdPi+6WIYYeNW9yVc
+      vTqCPS+exnaPiS/OfYrRuQyEFsLJ555CGTNAG0ReARCGQKy3Hb+KdAAI45U3foLwQyfD6djW
+      ehh++yrSOoD0DOY89Xjmqd24eakdcyZQ5nFs+YnWZMUBGO3vxo1oAoGysq9Ph/Z/80kQmgbd
+      5cLixsEbQo2vDx+efR+BcBMajXv9Hxd6QFqWhWQyufhw2b0hLcvOqrdUrr6VTrBF7vrpVFpq
+      fdM0c9Y3Jc+/vcz8m5LnXwiRVX/FAaiob0RLZRqbq+pwr32rF2UruB7ATAxjTFTiuReP4ebF
+      /8XAFNAcut+aLp1OL15wD0B6pwmXS4fP53vk/W63W2p9Xctd3+OV2xzXMIyc9Q3J868vM/+G
+      5PnXNC2r/ooD4PGXQpij+Kzjc0ymBIAQvr+tDt6lu0C2ia4Lf0H39SHYkQjajp1ApbiJP53t
+      RaCqAU+WOrUqRGuX1zFAfKQfg1N+fPvxXQC88H/TFkA3sO/409h3/IHbGk5g39qWk0iKvAJQ
+      FqzBfPxTXLgQB7AJNbu2w88rwqiI5RWA6fgYwtufxAun2wBo8PKaYCpyeQXA4zMQufQx3p2M
+      AKjED3/2Aiq5BaAillcAyuv24l9/3gDr64eWcwtARS6vALjcPlRUGoutEXkeEBW7vwHrLpjb
+      M/2n7QAAAABJRU5ErkJggg==
+    </thumbnail>
+    <thumbnail height='192' name='Luchthavens met de minste vertraging' width='192'>
+      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
+      gg==
+    </thumbnail>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAAS0klEQVR4nO2dW2wc13nH/zOzt5m9c7nLuyhKlCzT96i2bCu1jRR1DKtt4MJGgaJ10/ah
+      eehDnvLS1C8FigJuA7QFigK9AQ1cp2kcB2iQh8RpEzm1ZTuSZVk2bYuSKIqkKF6Wy73M7lxP
+      H5YakjuH1izF5XJ3vh8gQOfbM+d8qz1/zZnznfONwBhjIAifIrbbAYJoJyQAwteQAIiO5Nw7
+      Z6AZVayWatzPbbOGYnmbzywda8UyACDQMg8JolUwC/n5T3FBiqCQLyA9MoD8lUuIxmOoGiYQ
+      DCMTNjBdiOK5L5/AytxlfO+nZ3HfWBaCJSE6kEF5fgGBeIbuAETnUVudhZ25G7a6BFEMYmxs
+      GIVCEcFgCAIEhJUE7nvgC+iNAu+fPYuPpmYxNNSHRKYffb1ZHBwdQs/AMFZW8hB2axWIMQZB
+      EHajKYJoCsYslMtVxOOxpq/dNQFYlgVJknajKYLYM2gKRPgaEgDha0gAhK8hARC+hgRA+BpP
+      gTBNLeLqzDxy2SwKlRpiQQaNBcFqRcjpPmTTiVb7SRAtwZMAQhEFTFMxM38DckSBJoYAswxR
+      TqJWXoOViMK2bdDGUqLT8CSAaqUMIRRGTyyFcqkCFgJMhGAXV6Ckc876P8UBiE5jVwNh3/qv
+      d3AzX99klFDCeOmrT+5G0wTRMnZ1M9y1hQKuLxYBAOl4BADwV6/8AksF1bF988UndrNLgrgj
+      Wr4bdHqhgBsr9btCNqW0ujuCaApaBiV8DQmA8DUkAMLXkAAIX+PpIdjQVMzMLWFs7ADy+TzC
+      EuqRYK0EOZlFTA612k+CaAmeBCCIEvTSCm7cjGBpaRU9CRm2pUMIKlAXFyAPD8G2bWBzRIEB
+      pmluaYdxbATRTjwJQK9VYdg2CoUi1FIB0TBgQYKtrkBJZTciwJtPRApAILC1eYFjI4h24mk0
+      KvEU7n/oV9ZLR1roDkHsLfQQTPgaEgDha0gAhK8hARC+hgRA+BoSAOFrSACEr/F8KP7SpctI
+      9w1ieTmPlBKAZktgugollcPIYK7VfhJES/AkgEBIRkAUIEoB9OVyMLQKIqYOJHvBTA2WZdFW
+      CKIj8bgZrgopEgPTqyjXTGQSEeiI1dOi9PTRVgiiY/E0GiPRBI4c4eX+6dlldwhib6GHYMLX
+      kAAIX0MCIHwNCYDwNSQAwte0ZU3ynY9nUdPr8QA5HMQjdw+1ww2CaCI9+rVZJNM9KFZqSEZE
+      aCwAVitBTvehL5NqqtN//uE5LK6nS+zviZEAiLbhPT26rmFN1RELSTCYANGsQoimoaslWKl4
+      U5Hgrdl4GUzTxNsfzUI3LACAEgni4WODd/bNCMIDTaVHj4YkVDQDibAATYqAVVYhp5qPBG99
+      m7CAQCCAf/3RB8iXqgCA4WwCj917YOffiiA84vlQ/LG7m5vmEEQnQKtAhK8hARC+hgRA+BoS
+      AOFrSACEryEBEL7G0zKoqVdxbWYevb1prJZq9TPBm9KjJ2Nyq/0kiJbgMT16AEpYxI3FFag1
+      HSKLA1YRCEWh55cQk5tLj86LBLOGi+nsMLEXeBJAJb+I+VUVSTkEgTFYRg0GC8BeW4aSzO1K
+      JFhouJjODhN7gadRlsgN4XiONqwR3Qc9BBO+hgRA+BoSAOFrSACEryEBEL6GBED4GhIA4Ws8
+      HoovYerSJQRjaQSCIQh6uZ4e3VChJHMYHe5vtZ8E0RI8CUAUBCSzQ6gWl1FYKyLVm4Js6oDS
+      C1h60+nRaSsEsV/wlh7dMFApFzEwOILQWhnpaBAaUvXNcDtIj05bIYj9grdD8Yk07kqkAQCJ
+      xOY06clW+EQQewY9BBO+hgRA+BoSAOFrSACEryEBEL5mX681/vi9y07C3EQ0jCceGG2zR0S3
+      4TkSfHV6BsNj45iZvoZUNIja+qF4JdWHgVxr3hb57R9fQLGiAQAO9qdIAMSu40kAwVAY0VgC
+      c9OXsLpWQzTWj6CtQYhnYGoVWFayNZFgxjZZKDpM7D7eDsWvraJUrWJ45BASyTWIMKFJUdjV
+      NSi7lB6dGwkWhE0Wig4Tu4+nERXP9GEi0wcASMSUTZ/QJjiis6FVIMLXkAAIX0MCIHwNCYDw
+      NR23rPLyq29BM+rLoQOZOP741ENt9ojoZDpOAOcu3YBaMwAA40OtCcAR/sGTAPRqBdPX55DJ
+      9CBfVNETDdbTo9eKkNN96ElEW+0nQbQETwIIhCOIyyGEIlEEylWougkYFSAcR2Utj2Q0sneR
+      4E3VGKPoMHFneBJAeWUBN9dqKKnXwKQIRNvcSI+eamF6dF4keFM1QaDoMHFneEuPnh3Cg9lW
+      u0IQew8tgxK+pivmD3/57TdhWPVzA8PZJC2NEp5xCWBqagrj4+Pt8GXHvD+14BycubVEShBe
+      cE2BJicnMTU11Q5fCGLP4T4DTE5O4syZM3vtC0HsOa4p0KlTp9rhx67z2s8/hr0eM8imFDz1
+      4MG2+kPsT1wCEASG9999B5GeAUwcGWuHT7vCKz/5ENa6Au4Zy5IACC4uAcxePI9Q/xhWP5uE
+      emQMCuqH4j/79FNISgqariMRFtbTo1ehJLMYOzDYBtcJ4s5xCSDZ348L756DIEacDwXGkB4Y
+      ha2pUEIBQAQUUweUDMDM1qVH38FWCMbpl+cLQQAcAURiSUxMTEAQAljf4ACbMVSKBQwO9KNS
+      MxAPARpC9fToyT0+FH+brRACp1+eLwQBcARQWlzAm2//EodHD2Ho4Agk1EVx19F6KvR4vF6v
+      vv8ztmeOEkQrcAmg58BhPK5WMbeiOncAguhWOKtAAkzDgF5RYQIItcGpVsAYw5//y/865fGh
+      Hrz4zAP4eHrJscXlEEb7U+1wj2gT3InxwaMTOHS0SzYKbeLDK4vO30VRgGXZ+LN/+h/Hdvzo
+      AF766pPtcI1oE65IMLM1vP6d7+Jnp8+A1k2Ibsc9BRLDePjxRzE4PIJgOzwiiD2EuxeoVriJ
+      /3j1dejrZcbY5/4hiE6FO83PDR1Abr7olE1NxdT1BciiieWiVn9NqiXCNmtQkr0YG+FHgnni
+      aMrGPNbzYPMKCdpfcAWg6zpS2V5nChQIK0hGZZiaCoEBYkiGbOkQlB7ArkeBeZFga/2QimNa
+      tzVGgus25rJtbpDdsjVEgrfro6ELTj3OtXDbiO7GJQDGGMrlMrTyxjKoUS2jUlGRzfZCkg2k
+      lSA0BMG0MuRkpiMiwY6Pm6512SgFu+9w/dqLly4ideg+2OZHzn+2ISWOI0fqIeBbq+T1JOmU
+      D4jobFwPwdmxw7j8/hmUISHcDo8IYg9x3QHEoIKTX/xiO3whiD2H0qIQvoYEQPgaWvJoQDNM
+      vLRp09zEwRz+4JkH2ugR0UpIAA3YNsMnMytOORmNtNEbotV4EoBRq2BmYQXJiISiDgTtKjQ7
+      AFuvQEnmMDxAiUOJzsTbi7IjUSjhItaKq1A1IJ6OI2xoQLIXzKx1xJngnUaCKQV7d+NJAJpa
+      wspKHgP9fWBFFbGgBD2Ygl0rQkl3xplgr5FgXj2KDncvnn7ZsBLHvffeAwDI9G7+pJdbnyA6
+      BVoGJXwNCYDwNTS59YBp2Th/acEpp+MRHKY3VHYFJAAP1DQTf/Hvp53yyXtH8I3fPdlGj4jd
+      gqZAhK8hARC+xtMUyLZMrK6V0JNOIZ/PIySh/qJsrQw52YuY3C3pswi/4VEAFipqFUEYuD6f
+      Rzohg1k6hKACdXEB8vBQV0eCG202RYe7Bk8CsEwd83Oz0DNpVIoFRMOABQm2ugIlle36SHCj
+      TaTocNfgORL86IlHAADj40da6hBB7CX039gOKanalmS7x48O4LefuBuv/vSiYzsyksGTD4y2
+      wz3CIySAHWLZDFdvFJzySC6Jqm7iv9/6zLF96QtjJIB9Di2DEr6GBED4GhIA4WtIAISv8fQQ
+      fCvgJIkCNMNCUBJgQwRsE1IwBEkkHRGdiScBmFoVV+cWMZBJ4Mr1BcRlCYYFMNtCWEng4IEh
+      blpx27a3Gljd1ljTVe+WbUtFxqnntrFt+nX5x7PBbWMebQDvXQk8n4n9hCcBiIEgJFioqBX0
+      9mahV4uQmAUEwuD/8OAOMP7AuWXbuhVip4PT68Dmt7fNIHb1wanH+74MsGwbZVV3bKGghEiI
+      Vp/3C543w8mygnAkjJpuYaC/HyYkMKOGcDQOURTdA4K7/aBu27oV4la9rVshJEnaauJtU+Bu
+      XXD3CwEQG6dpHJsAgWtrnOIJgrseODZBELBSrOFP/vqHju3phw/hD599COc+u+HYBjIxHB6k
+      AzbtwFtalLCMwUGZ8wkljdoJ+WIVL7/6llN+9tFx9D8dw/ufbZw6G+yN49Bguh3u+Qq6F+8T
+      lgsqXv7Ohih+8+RR5NLRLUcxh7JxjA2QKHYTEsA+5ma+vEUUz/3qMYzkkiipmmOLhAKQw/Q+
+      z51CAugwLs/l8Y1/fMMpv/DUBH7v6fvb6FFnQwLoAqZm8/jWd992yqceO4pTj9G2dS+QALoA
+      zbQwt1xyypunSMTnQyFcwtd4To8+Pb+MeAhYLNaQjAjr6dFVKMksDgz1tdpPgmgJntOjx+Qi
+      DMNEKiqDiUDE1IFkBrC0rk+PzjsU76k9ZnPr2Y3t2ZxrbQarcZsHc2+tsJnNac+mQ/se8Zwe
+      fXW1gL6+LCo1C8kwoCFeT4/ek/PloXhP7Qkit57Y2J7IuVb0FoEWBZHTnkiH9j3i+VD8xMTd
+      AIDMlk8oKEN0NvQQTPgauk92KbphYa1Sc8rRSAhKhCLGjZAAupTJmeUtr3v9/afvx/NPTbTR
+      o/0JTYEIX0N3AB9x8eoi/vZ77zjlF56awNMPH26jR+2HBOAjdMPC4mrFKVdqRhu92R80JYBK
+      cRVLa1WklMB6evQS5GQWyRjvsAzRCSwVKrhw+aZTPjqSwUgu2UaP9pamBJDPryBf1CCyOJhZ
+      hBCOQs8vISb7Lz36fo8E82zuPmxcnsvj715717H90bMPYqAnCr/QlAAECBBsBsuowWAB2GvL
+      UJIUCd62vTZGgnk2dx+iuz1RRL6kbbkrHBvtxXA2gW6kKQEMHzyM4VZ5Quwbpuby+Pvvb9wV
+      vvaV410rAFoGJXwNCYDwNbQMSniiqhlYLW9srUhFI12xtYIEQHjivU/m8Tf/uXHu+E+fexi/
+      3gVBNBIAsWPml0v48MqiU77vUA6DvfE2etQ8JABix3w6s4x/+MF7Tvnrz5/A1Fwe//aj847t
+      a185jhMT+3ftsCkB2JaJQrGCaCRYzw1q1hCSYwgFpNtfTPgCTTeRL1U3yoaF81MLeOOXVxzb
+      b528C0dHMrzL95ymBDBzZQp2OIG1VRWWZYMJIgLBIkZHOOnRmTtNOfvc9OhbI8Fe0qMzno3T
+      L88Xrn+oR2VdfbDb9wtOlJYXuWWsHoG9vc/urNRsG5u7Pb6N5x9r/G7Mdme5tt3ZsHm+2Jys
+      2YwxzC8V8eaFGcf22D3DGB/aH6cJm1oGFSUJKzcXYNo2bAbYpglAgCA05ntGQ2bnbU3b4K0m
+      t9Y2l/J8bLQJ2BJ8/twGhUa7sF17vH+I2/vC6QGC4LZt47Tn7+v+fnx/3f0Krm4Fji8C3Lb9
+      RJOR4EPI9OsIB0RYkADbgBQM138YzpfcLiV5Y816PcFta0iP7mqPm86c36/LP54N/EEiCu6U
+      6YLIGbCcEeFqjyeUO/KP14fgHoi834jrH99n3sBulIUAAULj/Z0rFAFvnL2KV37yoWP7+gsn
+      8NCRAew1TQlAFCVEFXnThfQMTewMzbBQ2BRXMEwb703O4Wfnpx3b809NtDwbNo1gYt8wu1zC
+      Lz687pR/7fghjLX4pkACIPY1Zz6axekPrjnl3/nSPRjtT+1a+yQAYl8zu1TE/13cuCt8+cQ4
+      RnexfdoMR/gaEgDha2gKRHQcr5+exGunJ53yN198AscO9O6oraYEYNbKOHfxMrKpMDRbgq1X
+      oaSyODi89+u3hH/RDAulTe9etmwbn8wsY2o279hO3jeCdPz2yRqaEsD09DRq1QpYbwqyrQNy
+      BrAMSo++XXsdcCje1R7XxunXtmE3BLisbdtjHJu7XuP2DWdcba5nWa6tKbZl4+yn83jt5584
+      tsODKcwuruHyfF0UAUnEM4+Mo5GmBDB+7F4MHlBhaSo0pGFrJSjJfjoUv117HXoo3m3j9Mup
+      J4kiGreE1eu5o/y89oTG9iTJXU+SXJF5URLdNlHE2cl5vP5mXRRyOIDfePwYTn9wzcmZGgpI
+      zT8DKIoCKArqu76786A00b18//Qkrt4oAADicohWgQh/QwIgfA0JgPA1JADC15AACF9DAiB8
+      TVPLoKXCCm6uVpCOBjfSo6dy6En4J5sw0V00dQeQo1FIogBVM2GpBdgBBZW1PEWCt2uv2yPB
+      jZHbNkaCXTa74XA/bzyiSQHMX5+BbliwTQ0aC6C6tgwhENmI2FEkuMHmv0gwv157IsFbzjbz
+      xiOanAIdOHS0meoEse/5f2GDZyxidRs5AAAAAElFTkSuQmCC
+    </thumbnail>
+    <thumbnail height='192' name='Sheet 1 (2)' width='192'>
+      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
+      /w9qBPnu6kX4kwAAAABJRU5ErkJggg==
+    </thumbnail>
+  </thumbnails>
+</workbook>
